@@ -1,0 +1,17 @@
+{
+  "name": "skeleton-web",
+  "scripts": {
+    "start": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.17",
+    "@parcel/optimizer-htmlnano": "2.0.0-nightly.605+b6c37c73",
+    "@parcel/packager-html": "2.0.0-nightly.605+b6c37c73",
+    "@parcel/transformer-html": "2.0.0-nightly.605+b6c37c73",
+    "@parcel/transformer-posthtml": "2.0.0-nightly.605+b6c37c73",
+    "@parcel/transformer-vue": "2.0.0-nightly.2227+b6c37c73",
+    "parcel": "nightly",
+    "vue": "next"
+  }
+}

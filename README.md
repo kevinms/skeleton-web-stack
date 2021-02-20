@@ -1,24 +1,87 @@
-<h1 align="center">skeleton-web-stack</h1>
+# yarn2-parcel2-vue3
 
-<h3 align="center">Pick a web stack. Start your project.</h4>
-<br>
+Minimal project using [Yarn 2](https://yarnpkg.com/), [Parcel 2](https://parceljs.org/) and [Vue 3](https://v3.vuejs.org/).
 
-This repository contains multiple branches. Each one contains a minimal project for a given web stack. The idea is to provide a good skeleton on which you can build your own projects.
+Benefits:
+- `.vue` files - [Single File Components](https://v3.vuejs.org/guide/single-file-component.html)
+- Asset bundling
+- Tree shaking
 
-The `main` branch only contains this `README.md` with a description of other branches.
+Make sure you have both [Node.js](https://nodejs.org/) and [yarn](https://yarnpkg.com/) installed.
 
-## How it works
-
-Simply checkout the branch that contains the web stack you are insterested in. Each branch should have its own `README.md` that describes how to use the specific web stack but also how to create it from scratch.
-
-When switching branches make sure to reset and clean your working directory. This will remove project specific caches like `.yarn/`, `node_modules`, etc. ensuring you start fresh each time.
-
+Debian/Ubuntu systems:
 ```sh
-git checkout <branch>
-git reset --hard
-git clean -fdx
+sudo apt install nodejs
+npm install -g yarn
 ```
 
-# Pick a stack
+## Usage
 
-* `yarn2-parcel2-vue3` - Minimal project using [Yarn 2](https://yarnpkg.com/), [Parcel 2](https://parceljs.org/) and [Vue 3](https://v3.vuejs.org/). Benefits include asset bundling, tree shaking and .vue files - [Single File Components](https://v3.vuejs.org/guide/single-file-component.html) with very little configuration.
+Install project dependencies:
+
+```sh
+yarn install
+```
+
+Run a development server:
+```
+yarn run start
+```
+
+Build production files (output located in `dist/`):
+```
+yarn run build
+```
+
+---
+
+## How this project was created
+
+```sh
+mkdir skeleton-web
+cd skeleton-web
+git init
+yarn set version berry # Use Yarn 2
+yarn init
+yarn add -D parcel@nightly vue@next @babel/core
+mkdir src
+```
+
+
+Currently, `parcel@nightly` and `vue@next` are needed to support [SFCs](https://v3.vuejs.org/guide/single-file-component.html) (`.vue` files).
+
+Add script commands to `package.json`:
+
+```
+{
+  ...
+
+  "scripts": {
+    "start": "parcel serve ./src/index.html",
+    "build": "parcel build ./src/index.html"
+  },
+
+  ...
+}
+```
+
+Create a basic Vue 3 app in `src/`. An example can be found in the [parcel docs](https://v2.parceljs.org/languages/vue/).
+
+Add a basic .gitignore file:
+
+```
+# Vim
+*.sw[op]
+
+# Yarn: not using Zero-Installs
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# Parcel
+.parcel-cache/
+dist/
+```

@@ -1,0 +1,14 @@
+# Vim
+*.sw[op]
+
+# Yarn: not using Zero-Installs
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# Parcel
+.parcel-cache/
+dist/
